@@ -20,6 +20,10 @@ func(c car) mph() float64 {
 	return float64(c.gasPedal) * (c.topSpeedKmh / usixteenbitmax / kmh_multiple)
 }
 
+func (c *car) newTopSpeed(newSpeed float64) {
+	c.topSpeedKmh = newSpeed
+}
+
 func main() {
 	a_car := car {
 		gasPedal: 22341,
@@ -29,6 +33,9 @@ func main() {
 	}
 
 	fmt.Println(a_car.steeringWheel)
+	fmt.Println(a_car.kmh())
+	fmt.Println(a_car.mph())
+	a_car.newTopSpeed(500)
 	fmt.Println(a_car.kmh())
 	fmt.Println(a_car.mph())
 }
